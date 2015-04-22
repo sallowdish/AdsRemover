@@ -14,6 +14,23 @@
   </head>
 
   <body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$('#bookmarkme').click(function() {
+				if (window.sidebar && window.sidebar.addPanel) { // Mozilla Firefox Bookmark
+					window.sidebar.addPanel(document.title,window.location.href,'');
+				} else if(window.external && ('AddFavorite' in window.external)) { // IE Favorite
+					window.external.AddFavorite(location.href,document.title); 
+				} else if(window.opera && window.print) { // Opera Hotlist
+					this.title=document.title;
+					return true;
+				} else { // webkit - safari/chrome
+					alert('Press ' + (navigator.userAgent.toLowerCase().indexOf('mac') != - 1 ? 'Command/Cmd' : 'CTRL') + ' + D to bookmark this page.');
+				}
+			});
+		});
+	</script>
     <div id="container">
       <div class="inner">
 
@@ -26,6 +43,7 @@
           <a href="https://github.com/sallowdish/AdsRemover/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
           <a href="https://github.com/sallowdish/AdsRemover/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
           <a href="https://github.com/sallowdish/AdsRemover" id="view-on-github" class="button"><span>View on GitHub</span></a>
+		  <a href="#" id='bookmarkme" class='button'><span>Bookmark This Link</span></a>
         </section>
 
         <hr>
