@@ -14,24 +14,6 @@
   </head>
 
   <body>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	<script type="text/javascript">
-		$(function() {
-			$('#bookmarkme').click(function() {
-				if (window.sidebar && window.sidebar.addPanel) { // Mozilla Firefox Bookmark
-					window.sidebar.addPanel('AdRemover',$(this).attr('href'),'');
-				} else if(window.external && ('AddFavorite' in window.external)) { // IE Favorite
-					window.external.AddFavorite(
-					$(this).attr('href'),'AdRemover'); 
-				} else if(window.opera && window.print) { // Opera Hotlist
-					this.title=document.title;
-					return true;
-				} else { // webkit - safari/chrome
-					alert('Press ' + (navigator.userAgent.toLowerCase().indexOf('mac') != - 1 ? 'Command/Cmd' : 'CTRL') + ' + D to bookmark this page.');
-				}
-			});
-		});
-	</script>
     <div id="container">
       <div class="inner">
 
@@ -42,7 +24,7 @@
 
         <section id="downloads" class="clearfix">
           <a href="https://github.com/sallowdish/AdsRemover" id="view-on-github" class="button"><span>View on GitHub</span></a>
-		  <a href="#" id="bookmarkme" class="button"><span>Bookmark ME</span></a>
+		  <a href="https://raw.githubusercontent.com/sallowdish/AdsRemover/master/AdsRemover.min.js" id="bookmarkme" class="button"><span>Bookmark ME</span></a>
         </section>
 
         <hr>
@@ -55,8 +37,13 @@
 
 <h2>
 <a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
-
-<p>Save the code as a bookmark. Click the bookmark when needed.</p>
+  <ol>
+    <li>Click the 'Bookmark ME' button</li>
+    <li>Copy the code display on page</li>
+    <li>Create a new Bookmark in your toolbar</li>
+    <li>Paste the code to the 'location' feild of the new bookmark</li>
+    <li>Click the bookmark whenever ads need to be removed</li>
+  </ol>
 
 <h2>
 <a id="before" class="anchor" href="#before" aria-hidden="true"><span class="octicon octicon-link"></span></a>Before</h2>
