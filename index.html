@@ -19,9 +19,10 @@
 		$(function() {
 			$('#bookmarkme').click(function() {
 				if (window.sidebar && window.sidebar.addPanel) { // Mozilla Firefox Bookmark
-					window.sidebar.addPanel(document.title,window.location.href,'');
+					window.sidebar.addPanel('AdRemover',$(this).attr('href'),'');
 				} else if(window.external && ('AddFavorite' in window.external)) { // IE Favorite
-					window.external.AddFavorite(location.href,document.title); 
+					window.external.AddFavorite(
+					$(this).attr('href'),'AdRemover'); 
 				} else if(window.opera && window.print) { // Opera Hotlist
 					this.title=document.title;
 					return true;
@@ -40,10 +41,8 @@
         </header>
 
         <section id="downloads" class="clearfix">
-          <a href="https://github.com/sallowdish/AdsRemover/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
-          <a href="https://github.com/sallowdish/AdsRemover/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
           <a href="https://github.com/sallowdish/AdsRemover" id="view-on-github" class="button"><span>View on GitHub</span></a>
-		  <a href="#" id='bookmarkme" class='button'><span>Bookmark This Link</span></a>
+		  <a href="#" id="bookmarkme" class="button"><span>Bookmark ME</span></a>
         </section>
 
         <hr>
