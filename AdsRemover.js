@@ -2,7 +2,7 @@
 (function() {
     // Load the script
     var script = document.createElement("SCRIPT");
-    script.src = 'https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js';
+    script.src = 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js';
     script.type = 'text/javascript';
     document.getElementsByTagName("head")[0].appendChild(script);
 
@@ -22,8 +22,8 @@
 		blackList=['bdstatic.com','cb.baidu.com','pos.baidu.com'];
 		function removeIframes(){
 			for(var whiteKey in whiteList){
-				if ($(this).attr('src') && $(this).attr('src').indexOf(whiteKey)>-1) {
-					console.log('Skip iFrame with src:'+$(this).attr('src'))
+				if ($(this).attr('src') && $(this).attr('src').substring(0,50).indexOf(whiteKey)>-1) {
+					console.log('Skip iFrame with src:'+$(this).attr('src').substring(0,50)+" "+ $(this).attr('src').substring(0,50).indexOf(whiteKey));
 					return;
 				};
 			}
